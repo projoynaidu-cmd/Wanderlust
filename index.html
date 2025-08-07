@@ -1,690 +1,1360 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wanderlust | Luxury Travel Experiences</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- SplideJS for carousels -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'voyago-primary': '#0F4C81',
-                        'voyago-secondary': '#FF7D33',
-                        'voyago-accent': '#6EC1E4',
-                        'voyago-dark': '#1A1A2E',
-                        'voyago-light': '#F8F9FA',
-                    },
-                    fontFamily: {
-                        'sans': ['Montserrat', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 6s infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "voyago-primary": "#0F4C81",
+              "voyago-secondary": "#FF7D33",
+              "voyago-accent": "#6EC1E4",
+              "voyago-dark": "#1A1A2E",
+              "voyago-light": "#F8F9FA",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 6s infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-
-</head>
-<body class="font-sans bg-voyago-light text-voyago-dark overflow-x-hidden">
+  </head>
+  <body class="font-sans bg-voyago-light text-voyago-dark overflow-x-hidden">
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
-        <div class="flex flex-col items-center">
-            <div class="w-24 h-24 border-4 border-voyago-primary border-t-voyago-accent rounded-full animate-spin mb-4"></div>
-            <h2 class="text-2xl font-bold text-voyago-primary">Wanderlust</h2>
-        </div>
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-white z-50 flex items-center justify-center"
+    >
+      <div class="flex flex-col items-center">
+        <div
+          class="w-24 h-24 border-4 border-voyago-primary border-t-voyago-accent rounded-full animate-spin mb-4"
+        ></div>
+        <h2 class="text-2xl font-bold text-voyago-primary">Wanderlust</h2>
+      </div>
     </div>
 
     <!-- Header -->
     <header class="fixed w-full z-40">
-        <nav class="bg-white/90 backdrop-blur-md py-4 shadow-sm transition-all duration-300">
-            <div class="container mx-auto px-6 flex justify-between items-center">
-                <div class="flex items-center">
-                    <div class="w-12 h-12 rounded-full bg-voyago-primary flex items-center justify-center text-white font-bold text-xl transform hover:rotate-12 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <span class="ml-3 text-2xl font-bold text-voyago-primary font-serif">Wanderlust</span>
-                </div>
-                
-                <div class="hidden lg:flex space-x-10">
-                    <a href="#" class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Home</a>
-                    <a href="#" class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Destinations</a>
-                    <a href="#" class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Experiences</a>
-                    <a href="#" class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors">About</a>
-                    <a href="#" class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Contact</a>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <button class="hidden md:block bg-voyago-primary text-white px-6 py-2 rounded-full font-medium hover:bg-voyago-dark transition-colors">
-                        Book Now
-                    </button>
-                    <button id="mobile-menu-button" class="lg:hidden text-voyago-dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+      <nav
+        class="bg-white/90 backdrop-blur-md py-4 shadow-sm transition-all duration-300"
+      >
+        <div class="container mx-auto px-6 flex justify-between items-center">
+          <div class="flex items-center">
+            <div
+              class="w-12 h-12 rounded-full bg-voyago-primary flex items-center justify-center text-white font-bold text-xl transform hover:rotate-12 transition-transform"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </div>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full z-50">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#" class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Home</a>
-                <a href="#" class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Destinations</a>
-                <a href="#" class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Experiences</a>
-                <a href="#" class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors">About</a>
-                <a href="#" class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors">Contact</a>
-                <button class="bg-voyago-primary text-white px-6 py-2 rounded-full font-medium hover:bg-voyago-dark transition-colors mt-2">
-                    Book Now
-                </button>
-            </div>
+            <span class="ml-3 text-2xl font-bold text-voyago-primary font-serif"
+              >Wanderlust</span
+            >
+          </div>
+
+          <div class="hidden lg:flex space-x-10">
+            <a
+              href="#"
+              class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+              >Destinations</a
+            >
+            <a
+              href="#"
+              class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+              >Experiences</a
+            >
+            <a
+              href="#"
+              class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+              >About</a
+            >
+            <a
+              href="#"
+              class="nav-link relative text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              class="hidden md:block bg-voyago-primary text-white px-6 py-2 rounded-full font-medium hover:bg-voyago-dark transition-colors"
+            >
+              Book Now
+            </button>
+            <button id="mobile-menu-button" class="lg:hidden text-voyago-dark">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white shadow-lg absolute w-full z-50"
+      >
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <a
+            href="#"
+            class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+            >Destinations</a
+          >
+          <a
+            href="#"
+            class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+            >Experiences</a
+          >
+          <a
+            href="#"
+            class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+            >About</a
+          >
+          <a
+            href="#"
+            class="text-voyago-dark hover:text-voyago-primary font-medium transition-colors"
+            >Contact</a
+          >
+          <button
+            class="bg-voyago-primary text-white px-6 py-2 rounded-full font-medium hover:bg-voyago-dark transition-colors mt-2"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute inset-0 bg-black/30"></div>
-            <video autoplay muted loop class="w-full h-full object-cover">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-traveling-down-a-road-through-a-forest-15800-large.mp4" type="video/mp4"  >
-            </video>
+    <section
+      class="hero-gradient min-h-screen flex items-center relative overflow-hidden"
+    >
+      <div class=" absolute inset-0 overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <video autoplay muted loop class="w-full h-full object-cover z-10">
+          <source
+            src="video/hero-video.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+          <!-- <h2>video render here </h2> -->
+        </video>
+      </div>
+
+      <div class=" z-40 container mx-auto px-6 py-32 relative z-10 hero-content">
+        <div class="max-w-2xl" data-aos="fade-right">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-white mb-6 font-serif leading-tight"
+          >
+            Discover Your Next
+            <span class="text-voyago-secondary">Adventure</span>
+          </h1>
+          <p class="text-xl text-white/90 mb-10">
+            Curated luxury travel experiences that transform the way you see the
+            world. Our expert planners craft unforgettable journeys tailored
+            just for you.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <button
+              class="cta-btn bg-voyago-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-voyago-dark transition-all duration-300 transform hover:scale-105"
+            >
+              Explore Destinations
+            </button>
+            <button
+              class="cta-btn bg-white/20 text-white px-8 py-4 rounded-full font-bold text-lg border-2 border-white hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105"
+            >
+              Watch Video
+            </button>
+          </div>
         </div>
-        
-        <div class="container mx-auto px-6 py-32 relative z-10 hero-content">
-            <div class="max-w-2xl" data-aos="fade-right">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 font-serif leading-tight">
-                    Discover Your Next <span class="text-voyago-secondary">Adventure</span>
-                </h1>
-                <p class="text-xl text-white/90 mb-10">
-                    Curated luxury travel experiences that transform the way you see the world. Our expert planners craft unforgettable journeys tailored just for you.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="cta-btn bg-voyago-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-voyago-dark transition-all duration-300 transform hover:scale-105">
-                        Explore Destinations
-                    </button>
-                    <button class="cta-btn bg-white/20 text-white px-8 py-4 rounded-full font-bold text-lg border-2 border-white hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105">
-                        Watch Video
-                    </button>
-                </div>
+      </div>
+
+      <!-- Floating search box -->
+      <div
+        class="absolute hidden lg:block  bottom-0 left-1/3 transform -translate-x-1/2 translate-y-1/2 w-full max-w-4xl px-6"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="search-box bg-white rounded-xl p-6 shadow-2xl">
+          <h3 class="text-xl font-bold mb-4 text-voyago-primary">
+            Find Your Perfect Trip
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Destination</label
+              >
+              <select
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary"
+              >
+                <option>Anywhere</option>
+                <option>Europe</option>
+                <option>Asia</option>
+                <option>Africa</option>
+                <option>Americas</option>
+              </select>
             </div>
-        </div>
-        
-        <!-- Floating search box -->
-        <div class="absolute bottom-0 left-1/3 transform -translate-x-1/2 translate-y-1/2 w-full max-w-4xl px-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="search-box bg-white rounded-xl p-6 shadow-2xl">
-                <h3 class="text-xl font-bold mb-4 text-voyago-primary">Find Your Perfect Trip</h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Destination</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary">
-                            <option>Anywhere</option>
-                            <option>Europe</option>
-                            <option>Asia</option>
-                            <option>Africa</option>
-                            <option>Americas</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Travel Type</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary">
-                            <option>All Experiences</option>
-                            <option>Luxury</option>
-                            <option>Adventure</option>
-                            <option>Cultural</option>
-                            <option>Beach</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">When</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary">
-                            <option>Anytime</option>
-                            <option>Spring 2024</option>
-                            <option>Summer 2024</option>
-                            <option>Fall 2024</option>
-                            <option>Winter 2024</option>
-                        </select>
-                    </div>
-                    <div class="flex items-end">
-                        <button class="w-full bg-voyago-primary text-white py-3 px-6 rounded-lg hover:bg-voyago-dark transition-colors">
-                            Search
-                        </button>
-                    </div>
-                </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Travel Type</label
+              >
+              <select
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary"
+              >
+                <option>All Experiences</option>
+                <option>Luxury</option>
+                <option>Adventure</option>
+                <option>Cultural</option>
+                <option>Beach</option>
+              </select>
             </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >When</label
+              >
+              <select
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-voyago-primary focus:border-voyago-primary"
+              >
+                <option>Anytime</option>
+                <option>Spring 2024</option>
+                <option>Summer 2024</option>
+                <option>Fall 2024</option>
+                <option>Winter 2024</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button
+                class="w-full bg-voyago-primary text-white py-3 px-6 rounded-lg hover:bg-voyago-dark transition-colors"
+              >
+                Search
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Featured Destinations -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif">
-                    Featured <span class="text-voyago-primary">Destinations</span>
-                </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Discover our most sought-after travel destinations, handpicked by our global network of travel experts
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Santorini -->
-                <div class="destination-card relative rounded-2xl overflow-hidden h-96" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-                    <div class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-1">Santorini</h3>
-                                <p class="text-sm opacity-90">Greece</p>
-                            </div>
-                            <div class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold">
-                                From $2,499
-                            </div>
-                        </div>
-                        <div class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto">
-                            <p class="text-sm mb-4">Whitewashed buildings, blue domes, and stunning sunsets over the Aegean Sea.</p>
-                            <button class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors">
-                                Explore Packages
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <button class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Kyoto -->
-                <div class="destination-card relative rounded-2xl overflow-hidden h-96" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1753&q=80')] bg-cover bg-center"></div>
-                    <div class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-1">Kyoto</h3>
-                                <p class="text-sm opacity-90">Japan</p>
-                            </div>
-                            <div class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold">
-                                From $3,199
-                            </div>
-                        </div>
-                        <div class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto">
-                            <p class="text-sm mb-4">Ancient temples, traditional tea houses, and breathtaking cherry blossoms.</p>
-                            <button class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors">
-                                Explore Packages
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <button class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Safari -->
-                <div class="destination-card relative rounded-2xl overflow-hidden h-96" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80')] bg-cover bg-center"></div>
-                    <div class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-1">Serengeti</h3>
-                                <p class="text-sm opacity-90">Tanzania</p>
-                            </div>
-                            <div class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold">
-                                From $4,799
-                            </div>
-                        </div>
-                        <div class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto">
-                            <p class="text-sm mb-4">Witness the great migration and Africa's majestic wildlife up close.</p>
-                            <button class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors">
-                                Explore Packages
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <button class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12" data-aos="fade-up">
-                <button class="inline-flex items-center px-6 py-3 border-2 border-voyago-primary text-voyago-primary rounded-full font-medium hover:bg-voyago-primary hover:text-white transition-colors">
-                    View All Destinations
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </div>
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif"
+          >
+            Featured <span class="text-voyago-primary">Destinations</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Discover our most sought-after travel destinations, handpicked by
+            our global network of travel experts
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Santorini -->
+          <div
+            class="destination-card relative rounded-2xl overflow-hidden h-96"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"
+            ></div>
+            <div
+              class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-bold mb-1">Santorini</h3>
+                  <p class="text-sm opacity-90">Greece</p>
+                </div>
+                <div
+                  class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold"
+                >
+                  From $2,499
+                </div>
+              </div>
+              <div
+                class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto"
+              >
+                <p class="text-sm mb-4">
+                  Whitewashed buildings, blue domes, and stunning sunsets over
+                  the Aegean Sea.
+                </p>
+                <button
+                  class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors"
+                >
+                  Explore Packages
+                </button>
+              </div>
+            </div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <button
+                class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Kyoto -->
+          <div
+            class="destination-card relative rounded-2xl overflow-hidden h-96"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1753&q=80')] bg-cover bg-center"
+            ></div>
+            <div
+              class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-bold mb-1">Kyoto</h3>
+                  <p class="text-sm opacity-90">Japan</p>
+                </div>
+                <div
+                  class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold"
+                >
+                  From $3,199
+                </div>
+              </div>
+              <div
+                class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto"
+              >
+                <p class="text-sm mb-4">
+                  Ancient temples, traditional tea houses, and breathtaking
+                  cherry blossoms.
+                </p>
+                <button
+                  class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors"
+                >
+                  Explore Packages
+                </button>
+              </div>
+            </div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <button
+                class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Safari -->
+          <div
+            class="destination-card relative rounded-2xl overflow-hidden h-96"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80')] bg-cover bg-center"
+            ></div>
+            <div
+              class="destination-card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-bold mb-1">Serengeti</h3>
+                  <p class="text-sm opacity-90">Tanzania</p>
+                </div>
+                <div
+                  class="price-tag bg-voyago-secondary text-white px-4 py-2 text-sm font-bold"
+                >
+                  From $4,799
+                </div>
+              </div>
+              <div
+                class="mt-4 opacity-0 h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:h-auto"
+              >
+                <p class="text-sm mb-4">
+                  Witness the great migration and Africa's majestic wildlife up
+                  close.
+                </p>
+                <button
+                  class="text-sm font-medium bg-white text-voyago-primary px-4 py-2 rounded-full hover:bg-voyago-primary hover:text-white transition-colors"
+                >
+                  Explore Packages
+                </button>
+              </div>
+            </div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <button
+                class="bg-voyago-secondary text-white p-4 rounded-full hover:bg-voyago-primary transition-colors transform hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+          <button
+            class="inline-flex items-center px-6 py-3 border-2 border-voyago-primary text-voyago-primary rounded-full font-medium hover:bg-voyago-primary hover:text-white transition-colors"
+          >
+            View All Destinations
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Experience Types -->
     <section class="py-20 bg-voyago-light">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif">
-                    Tailored <span class="text-voyago-primary">Experiences</span>
-                </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Whatever your travel style, we have the perfect experience waiting for you
-                </p>
-            </div>
-
-            <div class="splide" data-aos="fade-up">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide px-4">
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div class="h-48 bg-[url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">Luxury Escapes</h3>
-                                    <p class="text-gray-600 mb-4">Indulge in 5-star accommodations, private tours, and exclusive experiences.</p>
-                                    <button class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center">
-                                        Explore Luxury
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide px-4">
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div class="h-48 bg-[url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">Adventure Travel</h3>
-                                    <p class="text-gray-600 mb-4">From hiking to diving, push your limits with thrilling experiences.</p>
-                                    <button class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center">
-                                        Find Adventure
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide px-4">
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div class="h-48 bg-[url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">Cultural Immersion</h3>
-                                    <p class="text-gray-600 mb-4">Connect with local traditions, cuisine, and ways of life.</p>
-                                    <button class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center">
-                                        Discover Cultures
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide px-4">
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div class="h-48 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1773&q=80')] bg-cover bg-center"></div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">Beach Getaways</h3>
-                                    <p class="text-gray-600 mb-4">Relax on pristine beaches with crystal-clear waters and luxury resorts.</p>
-                                    <button class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center">
-                                        Find Beaches
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide px-4">
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div class="h-48 bg-[url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"></div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">Family Vacations</h3>
-                                    <p class="text-gray-600 mb-4">Create lasting memories with experiences the whole family will love.</p>
-                                    <button class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center">
-                                        Family Packages
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif"
+          >
+            Tailored <span class="text-voyago-primary">Experiences</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Whatever your travel style, we have the perfect experience waiting
+            for you
+          </p>
         </div>
+
+        <div class="splide" data-aos="fade-up">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide px-4">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div
+                    class="h-48 bg-[url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"
+                  ></div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">
+                      Luxury Escapes
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                      Indulge in 5-star accommodations, private tours, and
+                      exclusive experiences.
+                    </p>
+                    <button
+                      class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center"
+                    >
+                      Explore Luxury
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide px-4">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div
+                    class="h-48 bg-[url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"
+                  ></div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">
+                      Adventure Travel
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                      From hiking to diving, push your limits with thrilling
+                      experiences.
+                    </p>
+                    <button
+                      class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center"
+                    >
+                      Find Adventure
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide px-4">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div
+                    class="h-48 bg-[url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"
+                  ></div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">
+                      Cultural Immersion
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                      Connect with local traditions, cuisine, and ways of life.
+                    </p>
+                    <button
+                      class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center"
+                    >
+                      Discover Cultures
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide px-4">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div
+                    class="h-48 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1773&q=80')] bg-cover bg-center"
+                  ></div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">
+                      Beach Getaways
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                      Relax on pristine beaches with crystal-clear waters and
+                      luxury resorts.
+                    </p>
+                    <button
+                      class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center"
+                    >
+                      Find Beaches
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="splide__slide px-4">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div
+                    class="h-48 bg-[url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')] bg-cover bg-center"
+                  ></div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-voyago-dark">
+                      Family Vacations
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                      Create lasting memories with experiences the whole family
+                      will love.
+                    </p>
+                    <button
+                      class="text-sm font-medium text-voyago-primary hover:text-voyago-secondary transition-colors flex items-center"
+                    >
+                      Family Packages
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Stats Section -->
     <section class="py-20 bg-voyago-primary text-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6" data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-5xl font-bold mb-2 flex items-center justify-center">
-                        <span class="counter" data-target="150">0</span>
-                        <span class="text-voyago-secondary">+</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Destinations</h3>
-                    <p class="text-white/80">Across all continents</p>
-                </div>
-                <div class="p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-5xl font-bold mb-2 flex items-center justify-center">
-                        <span class="counter" data-target="10000">0</span>
-                        <span class="text-voyago-secondary">+</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Happy Travelers</h3>
-                    <p class="text-white/80">Creating memories</p>
-                </div>
-                <div class="p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-5xl font-bold mb-2 flex items-center justify-center">
-                        <span class="counter" data-target="15">0</span>
-                        <span class="text-voyago-secondary">+</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Years Experience</h3>
-                    <p class="text-white/80">In the industry</p>
-                </div>
-                <div class="p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-5xl font-bold mb-2 flex items-center justify-center">
-                        <span class="counter" data-target="98">0</span>
-                        <span class="text-voyago-secondary">%</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Satisfaction Rate</h3>
-                    <p class="text-white/80">Customer happiness</p>
-                </div>
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div class="p-6" data-aos="fade-up" data-aos-delay="0">
+            <div
+              class="text-5xl font-bold mb-2 flex items-center justify-center"
+            >
+              <span class="counter" data-target="150">0</span>
+              <span class="text-voyago-secondary">+</span>
             </div>
+            <h3 class="text-xl font-semibold mb-2">Destinations</h3>
+            <p class="text-white/80">Across all continents</p>
+          </div>
+          <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="text-5xl font-bold mb-2 flex items-center justify-center"
+            >
+              <span class="counter" data-target="10000">0</span>
+              <span class="text-voyago-secondary">+</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Happy Travelers</h3>
+            <p class="text-white/80">Creating memories</p>
+          </div>
+          <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="text-5xl font-bold mb-2 flex items-center justify-center"
+            >
+              <span class="counter" data-target="15">0</span>
+              <span class="text-voyago-secondary">+</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Years Experience</h3>
+            <p class="text-white/80">In the industry</p>
+          </div>
+          <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="text-5xl font-bold mb-2 flex items-center justify-center"
+            >
+              <span class="counter" data-target="98">0</span>
+              <span class="text-voyago-secondary">%</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Satisfaction Rate</h3>
+            <p class="text-white/80">Customer happiness</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Testimonials -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif">
-                    Traveler <span class="text-voyago-primary">Stories</span>
-                </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Don't just take our word for it - hear from our community of global explorers
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card h-full" data-aos="fade-up" data-aos-delay="0">
-                    <div class="testimonial-inner h-full">
-                        <div class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/women/44.jpg')] bg-cover bg-center mr-4"></div>
-                                <div>
-                                    <h4 class="font-bold">Sarah Johnson</h4>
-                                    <p class="text-sm text-gray-600">Luxury Traveler</p>
-                                </div>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="italic mb-6">"Our trip to Santorini was absolutely perfect. Every detail was taken care of, from the private yacht tour to the incredible boutique hotel with sunset views."</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <div class="flex space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center">
-                            <h4 class="font-bold text-xl mb-4">Sarah's Experience</h4>
-                            <p class="mb-4">"The attention to detail was incredible. Our travel consultant arranged private guides who gave us access to places we never would have found on our own."</p>
-                            <p class="text-sm">Santorini Luxury Package, June 2023</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card h-full" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-inner h-full">
-                        <div class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/men/32.jpg')] bg-cover bg-center mr-4"></div>
-                                <div>
-                                    <h4 class="font-bold">Michael Chen</h4>
-                                    <p class="text-sm text-gray-600">Adventure Seeker</p>
-                                </div>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="italic mb-6">"The Patagonia trekking adventure exceeded all expectations. The guides were knowledgeable and the itinerary was perfectly paced for our group."</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <div class="flex space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center">
-                            <h4 class="font-bold text-xl mb-4">Michael's Adventure</h4>
-                            <p class="mb-4">"The equipment was top-notch and the guides were experts in the region. We felt challenged but completely safe the entire time."</p>
-                            <p class="text-sm">Patagonia Trekking Expedition, March 2023</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card h-full" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-inner h-full">
-                        <div class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col">
-                            <div class="flex items-center mb-4">
-                                <div class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/women/68.jpg')] bg-cover bg-center mr-4"></div>
-                                <div>
-                                    <h4 class="font-bold">Jessica & Tom Wilson</h4>
-                                    <p class="text-sm text-gray-600">Honeymooners</p>
-                                </div>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="italic mb-6">"Our Maldives honeymoon was a dream come true. The overwater villa was stunning and the private dinners on the beach were so romantic."</p>
-                            </div>
-                            <div class="flex justify-center">
-                                <div class="flex space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center">
-                            <h4 class="font-bold text-xl mb-4">Their Honeymoon</h4>
-                            <p class="mb-4">"The resort staff knew it was our honeymoon and went above and beyond to make it special - rose petals, champagne, even a private snorkeling tour!"</p>
-                            <p class="text-sm">Maldives Paradise, January 2023</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-voyago-dark mb-4 font-serif"
+          >
+            Traveler <span class="text-voyago-primary">Stories</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it - hear from our community of global
+            explorers
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="testimonial-card h-full"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div class="testimonial-inner h-full">
+              <div
+                class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col"
+              >
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/women/44.jpg')] bg-cover bg-center mr-4"
+                  ></div>
+                  <div>
+                    <h4 class="font-bold">Sarah Johnson</h4>
+                    <p class="text-sm text-gray-600">Luxury Traveler</p>
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <p class="italic mb-6">
+                    "Our trip to Santorini was absolutely perfect. Every detail
+                    was taken care of, from the private yacht tour to the
+                    incredible boutique hotel with sunset views."
+                  </p>
+                </div>
+                <div class="flex justify-center">
+                  <div class="flex space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center"
+              >
+                <h4 class="font-bold text-xl mb-4">Sarah's Experience</h4>
+                <p class="mb-4">
+                  "The attention to detail was incredible. Our travel consultant
+                  arranged private guides who gave us access to places we never
+                  would have found on our own."
+                </p>
+                <p class="text-sm">Santorini Luxury Package, June 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="testimonial-card h-full"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="testimonial-inner h-full">
+              <div
+                class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col"
+              >
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/men/32.jpg')] bg-cover bg-center mr-4"
+                  ></div>
+                  <div>
+                    <h4 class="font-bold">Michael Chen</h4>
+                    <p class="text-sm text-gray-600">Adventure Seeker</p>
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <p class="italic mb-6">
+                    "The Patagonia trekking adventure exceeded all expectations.
+                    The guides were knowledgeable and the itinerary was
+                    perfectly paced for our group."
+                  </p>
+                </div>
+                <div class="flex justify-center">
+                  <div class="flex space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center"
+              >
+                <h4 class="font-bold text-xl mb-4">Michael's Adventure</h4>
+                <p class="mb-4">
+                  "The equipment was top-notch and the guides were experts in
+                  the region. We felt challenged but completely safe the entire
+                  time."
+                </p>
+                <p class="text-sm">Patagonia Trekking Expedition, March 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="testimonial-card h-full"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="testimonial-inner h-full">
+              <div
+                class="testimonial-front h-full bg-voyago-light rounded-2xl p-8 flex flex-col"
+              >
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-16 h-16 rounded-full bg-[url('https://randomuser.me/api/portraits/women/68.jpg')] bg-cover bg-center mr-4"
+                  ></div>
+                  <div>
+                    <h4 class="font-bold">Jessica & Tom Wilson</h4>
+                    <p class="text-sm text-gray-600">Honeymooners</p>
+                  </div>
+                </div>
+                <div class="flex-grow">
+                  <p class="italic mb-6">
+                    "Our Maldives honeymoon was a dream come true. The overwater
+                    villa was stunning and the private dinners on the beach were
+                    so romantic."
+                  </p>
+                </div>
+                <div class="flex justify-center">
+                  <div class="flex space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-yellow-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="testimonial-back absolute inset-0 bg-voyago-primary text-white rounded-2xl p-8 flex flex-col justify-center"
+              >
+                <h4 class="font-bold text-xl mb-4">Their Honeymoon</h4>
+                <p class="mb-4">
+                  "The resort staff knew it was our honeymoon and went above and
+                  beyond to make it special - rose petals, champagne, even a
+                  private snorkeling tour!"
+                </p>
+                <p class="text-sm">Maldives Paradise, January 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-32 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80')] bg-cover bg-center parallax relative">
-        <div class="absolute inset-0 bg-voyago-primary/90"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-serif leading-tight">
-                    Ready to Start Your Journey?
-                </h2>
-                <p class="text-xl text-white/90 mb-10">
-                    Our travel experts are ready to craft your perfect itinerary. Contact us today for a personalized consultation.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="cta-btn bg-voyago-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105">
-                        Get Started
-                    </button>
-                    <button class="cta-btn bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105">
-                        Contact Us
-                    </button>
-                </div>
-            </div>
+    <section
+      class="py-32 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80')] bg-cover bg-center parallax relative"
+    >
+      <div class="absolute inset-0 bg-voyago-primary/90"></div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-white mb-6 font-serif leading-tight"
+          >
+            Ready to Start Your Journey?
+          </h2>
+          <p class="text-xl text-white/90 mb-10">
+            Our travel experts are ready to craft your perfect itinerary.
+            Contact us today for a personalized consultation.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <button
+              class="cta-btn bg-voyago-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105"
+            >
+              Get Started
+            </button>
+            <button
+              class="cta-btn bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-voyago-primary transition-all duration-300 transform hover:scale-105"
+            >
+              Contact Us
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-voyago-dark text-white pt-20 pb-10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded-full bg-voyago-primary flex items-center justify-center text-white font-bold text-xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <span class="ml-3 text-2xl font-bold text-white font-serif">Wanderlust</span>
-                    </div>
-                    <p class="text-gray-400 mb-6">Crafting unforgettable travel experiences since 2008.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Destinations</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Europe</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Asia</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Africa</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">North America</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">South America</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Travel Styles</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Luxury Travel</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Adventure Tours</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cultural Experiences</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Beach Holidays</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Family Vacations</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Company</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Contact</h4>
-                    <ul class="space-y-3">
-                        <li class="text-gray-400">123 Travel Street</li>
-                        <li class="text-gray-400">New York, NY 10001</li>
-                        <li class="text-gray-400">+1 (555) 123-4567</li>
-                        <li class="text-gray-400">hello@voyago.com</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
+          <div>
+            <div class="flex items-center mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-voyago-primary flex items-center justify-center text-white font-bold text-xl"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <span class="ml-3 text-2xl font-bold text-white font-serif"
+                >Wanderlust</span
+              >
             </div>
-            
-            <div class="border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Wanderlust Travel. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
-                </div>
+            <p class="text-gray-400 mb-6">
+              Crafting unforgettable travel experiences since 2008.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                  />
+                </svg>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-6">Destinations</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Europe</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Asia</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Africa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >North America</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >South America</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-6">Travel Styles</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Luxury Travel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Adventure Tours</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Cultural Experiences</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Beach Holidays</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Family Vacations</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-6">Company</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Press</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact</h4>
+            <ul class="space-y-3">
+              <li class="text-gray-400">123 Travel Street</li>
+              <li class="text-gray-400">New York, NY 10001</li>
+              <li class="text-gray-400">+1 (555) 123-4567</li>
+              <li class="text-gray-400">hello@voyago.com</li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2023 Wanderlust Travel. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >Cookie Policy</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Floating Contact Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <button class="bg-voyago-secondary text-white p-4 rounded-full shadow-xl hover:bg-voyago-primary transition-colors transform hover:scale-110 flex items-center justify-center floating">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-        </button>
+      <button
+        class="bg-voyago-secondary text-white p-4 rounded-full shadow-xl hover:bg-voyago-primary transition-colors transform hover:scale-110 flex items-center justify-center floating"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          />
+        </svg>
+      </button>
     </div>
 
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- SplideJS -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script src="main.js">
-      
-    </script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
